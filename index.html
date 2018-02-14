@@ -7,26 +7,26 @@
     <title>Js</title>
 
     <style>
-        .block {
-            width: 200px;
-            height: 200px;
-            background-color: purple;
-        }
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="block block1">
+       <strong>syntax parser:</strong> <br>
+       <p>un programma che legge il codice e determina cosa fa e se è stato scritto grammaticamente bene.</p>
+       <strong>lexical environment:</strong> <br>
+       <p>dove qualcosa risiede nel codice scritto. function hello () {var a = "Hello"} In questo caso a risiede dentro la funzione.</p>
+       <strong>execution context:</strong> <br>
+       <p>Il lexical environment che è attualmente in esecuzione</p>
+       <strong>global execution context</strong>
+       <p>crea ogni volta il global object e il this. A livello globale il global object (window) = this. Sono allo stesso livello. 
+        Se creo una variabile globale (quindi non dentro una funzione), oppure una funzione esse vengono automaticamente attaccate al global object (window).
+       </p>
 
-        </div>
-        <button class="move" id="muovi1">Muovi quadrato</button>
+       <strong>execution context</strong> <br>
+       CREATION PHASE: crea il global object, il this, outer environment, e setta lo spazio di memoria per le varibili e le funzioni (<strong>HOISTING</strong>). Tutto questo prima che il programma venga letto linea per linea. Le funzioni vengono settate in memoria nella loro interezza mentre le varibili no. La variabile viene settata in memoria come undefined finche non viene fisicamente valorizzata.
+
     </div>
-    <div class="container">
-            <div class="block block2">
-    
-            </div>
-            <button class="move" id="muovi2">Muovi quadrato</button>
-        </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="scripts/app.js"></script>
 </body>
