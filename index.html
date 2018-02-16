@@ -24,7 +24,19 @@
        </p>
 
        <strong>execution context</strong> <br>
-       CREATION PHASE: crea il global object, il this, outer environment, e setta lo spazio di memoria per le varibili e le funzioni (<strong>HOISTING</strong>). Tutto questo prima che il programma venga letto linea per linea. Le funzioni vengono settate in memoria nella loro interezza mentre le varibili no. La variabile viene settata in memoria come undefined finche non viene fisicamente valorizzata.
+       CREATION PHASE: crea il global object, il this, outer environment, e setta lo spazio di memoria per le varibili e le funzioni (<strong>HOISTING</strong>). Tutto questo prima che il programma venga letto linea per linea. Le funzioni vengono settate in memoria nella loro interezza mentre le varibili no. La variabile viene settata in memoria come undefined finche non viene fisicamente valorizzata. <br><br>
+
+       <strong>namespace</strong>
+       <p>Un contenitore per varibili e funzioni. Per mantenere variabili e funzioni con lo stesso nome separate. JS non ha di default in concetto di namespace vero e proprio ma si possono usare dei fake namespace attraverso gli oggetti. Creando oggetti diversi ma con stessi nomi di proprietà riusciamo ad evitare collisioni di variabili e funzioni(metodi) con lo stesso nome.</p>
+
+       <strong>JSON</strong>
+       <p>JavaScript Object Notation. E' simile ad un oggetto javascript solo che le proprietà vanno messe come stringhe ""</p>
+
+       <strong>Le funzioni in javascript sono oggetti</strong> <br><br>
+       <strong>FIRST CLASS FUNCTIONS</strong>
+       <p>Ogni operazione che si puo fare con altri tipi di dato si puo fare anche con le funzioni. Assegnarle ad una variabile, passarle e crearle al volo. La funzione è un oggetto con delle proprietà, il codice che noi scriviamo all'interno della funzione è una delle proprietà e può essere invocabile. </p>
+       <strong>Expression.</strong>
+       <p>Codice che restituisce un valore. Non necessariamente deve essere salvato in una variabile.</p>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
