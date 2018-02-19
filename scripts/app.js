@@ -54,3 +54,60 @@ console.log(JSON.stringify(person));
 var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
 
 console.log(obj);
+
+function log (a) {
+    console.log(a);
+}
+
+log({
+    greeting: "Hello"
+});
+
+var a = ['a', 'b', {element: true}];
+
+var b = a;
+
+a = ['c' , 'd' , 3];
+
+console.log(b);
+console.log(a);
+
+
+var c = {
+    name: "a",
+    surname: "b"
+}
+
+var d = c;
+
+c.name = "q";
+
+console.log(c);
+console.log(d);
+
+
+
+var x = {
+    element1: "1",
+    element2: "2"
+};
+
+function chan(s) {
+    s.element2 = "3";
+   // return s;
+}
+
+chan(x);
+
+console.log(x);
+
+
+function aa () {
+    console.log(this); // A questo livello il this punta sempre all'oggetto globale
+    this.newvariable = "nuova variabile";
+}
+aa();
+
+console.log(newvariable);
+
+console.log(this);
