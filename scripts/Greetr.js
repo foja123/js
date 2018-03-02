@@ -104,6 +104,6 @@
     Greetr.init.prototype = Greetr.proto;
 
     //Espongo l'oggetto Greetr al mondo esterno attancandolo al global.. cioè all'oggetto window e utilizzo un alias G$
-    global.Greetr = global.$G = Greetr;
+    global.Greetr = global.G$ = Greetr;
 
 }(window, jQuery));
