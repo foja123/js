@@ -1,7 +1,7 @@
 var Util = (function(ud) {
 
     // Set up for sub module
-    // Faccio cosi per avere un sub module all'interno dell'oggetto util (Util.doc.obj)
+    // Faccio cosi per avere un sub module all'interno dell'oggetto util ----- ES: (Util.doc.obj)
     var sub = ud.doc = ud.doc || {};
 
 
