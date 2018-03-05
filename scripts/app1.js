@@ -1,9 +1,14 @@
-// var o = O$({
+var o = O$({
+    overlayId: "idmodale0",
+    overlayColor: "#f00"
+});
+
+// var o1 = O$({
 //     overlayId: "idmodale",
-//     overlayColor: "#f00"
+//     overlayColor: "#f26"
 // });
 
-// o.open().close();
+//o.open().close();
 
 
 
@@ -19,9 +24,18 @@ $(document).ready(function() {
         basicOverlay();
     });
 
-    $('#example1').basicOverlay();
+    $('#example1').overLay({
+        //overlayId: "idmodale",
+        overlayColor: "#0ff"
+    });
     $('#example2').basicOverlay({
         content: "#modal1"
+    });
+
+    $('h2').helloWorld({
+        text        : 'Salut, le monde!',
+        color       : '#005dff',
+        fontStyle   : 'italic'
     });
 });
 

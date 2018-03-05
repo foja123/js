@@ -31,11 +31,11 @@ var basicOverlay = (function ($, window, document) {
         init: function (options) {
 
 
-            console.log("this init: " + this.options);
+            // console.log("this init: " + this.options);
 
-            for (var prop in this.options) {
-                console.log(prop + ' ' + this.options[prop])
-            }
+            // for (var prop in this.options) {
+            //     console.log(prop + ' ' + this.options[prop])
+            // }
 
             console.log("this init: " + this.options.overlayId);
             var bodyHeight = $('body').outerHeight(),
@@ -95,13 +95,19 @@ var basicOverlay = (function ($, window, document) {
             }
         },
         loadInPage: function (options) {
+            console.log('load in page');
+            //console.log('load: ' + typeof options);
+            console.log('load: ' + this.options.content);
             if ($(options.content).length !== 0) {
                 var modal = options.content;
                 //var localModal = modal+'_local';
                 var h = $(options.content).clone().appendTo(horizon).show().outerHeight();
                 //basicOverlay.show(localMmodal, h, options);
+                console.log('basicthis: ' + this);
+                console.log('basicOverlay_this: ' + basicOverlay);
                 basicOverlay.show(modal, h, options);
             } else {
+                console.log("here");
                 basicOverlay.close(options.overlayId);
             }
         },
@@ -121,6 +127,9 @@ var basicOverlay = (function ($, window, document) {
             });
         },
         show: function (el, h, options) {
+
+            console.log("show el: "  + el);
+
             //if (options.closable == true) {
             $(closeBtn).on('click',
 
@@ -202,6 +211,15 @@ var basicOverlay = (function ($, window, document) {
     // JQUERY STYLE PLUGIN
     $.fn.basicOverlay = function (opts) {
         opts = opts || {};
+
+        console.log('qaqaq: ' + this);
+
+        console.log('opts: ' + opts);
+
+        for (var prop in opts) {
+            console.log('opts: ' + opts[prop]);
+        }
+
         return this.each(function () {
             var content;
             var href = $(this).attr('href');
@@ -219,13 +237,25 @@ var basicOverlay = (function ($, window, document) {
             if (opts.externalPage || extP) {
                 opts.externalPage = opts.externalPage || extP;
             }
+
+            
+
+
+
             $(this).on('click',
 
             function () {
+                console.log('zzz: ' + this);
+
+                for (var prop in opts) {
+                    console.log('opts: ' + opts[prop]);
+                }
+
+
                 basicOverlay.open(opts);
                 return false;
             });
         });
     };
-    return basicOverlay;
+    //return basicOverlay;
 })(jQuery, window, document);
