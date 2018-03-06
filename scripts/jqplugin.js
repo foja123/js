@@ -10,12 +10,6 @@
         }, options);
 
 
-        console.log("hello: " + this);
-
-        for(var prop in settings) {
-            console.log("h: " + settings[prop])
-        }
-        
         this.each(function() {
             
             $(this).text(settings.text);

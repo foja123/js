@@ -27,9 +27,13 @@ $(document).ready(function() {
     $('#example1').overLay({
         //overlayId: "idmodale",
         overlayColor: "#0ff"
+       
     });
     $('#example2').basicOverlay({
-        content: "#modal1"
+        content: "#modal1",
+        after: function() {
+            
+        }
     });
 
     $('h2').helloWorld({

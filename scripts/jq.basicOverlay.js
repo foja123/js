@@ -31,13 +31,7 @@ var basicOverlay = (function ($, window, document) {
         init: function (options) {
 
 
-            // console.log("this init: " + this.options);
-
-            // for (var prop in this.options) {
-            //     console.log(prop + ' ' + this.options[prop])
-            // }
-
-            console.log("this init: " + this.options.overlayId);
+          
             var bodyHeight = $('body').outerHeight(),
                 viewportHeight = $(window).height();
             $('body').append('<div id="' + options.overlayId + '"><div class="bso-overlay" /><div class="bso-content" /></div>');
@@ -55,7 +49,7 @@ var basicOverlay = (function ($, window, document) {
                 '-webkit-opacity': options.overlayOpacity,
                 '-moz-opacity': options.overlayOpacity,
                 'opacity': options.overlayOpacity
-            });
+            }, function() {console.log("settato css")});
             $('#' + options.overlayId).find(horizon).css({
                 'z-index': '9999',
                 'position': globalPosition,
@@ -88,6 +82,7 @@ var basicOverlay = (function ($, window, document) {
                 this.loadRemote(options);
             } else {
                 if (options.content.length > 1 && options.content.substr(0, 1) === '#'){ 
+                    console.log('3');
                     this.loadInPage(options);
                 }else{
                     this.loadRemote(options);
@@ -95,19 +90,17 @@ var basicOverlay = (function ($, window, document) {
             }
         },
         loadInPage: function (options) {
-            console.log('load in page');
-            //console.log('load: ' + typeof options);
-            console.log('load: ' + this.options.content);
+      
+
             if ($(options.content).length !== 0) {
                 var modal = options.content;
                 //var localModal = modal+'_local';
                 var h = $(options.content).clone().appendTo(horizon).show().outerHeight();
                 //basicOverlay.show(localMmodal, h, options);
-                console.log('basicthis: ' + this);
-                console.log('basicOverlay_this: ' + basicOverlay);
+                console.log('4');
                 basicOverlay.show(modal, h, options);
             } else {
-                console.log("here");
+                
                 basicOverlay.close(options.overlayId);
             }
         },
@@ -128,7 +121,7 @@ var basicOverlay = (function ($, window, document) {
         },
         show: function (el, h, options) {
 
-            console.log("show el: "  + el);
+            console.log('5: ' + el);
 
             //if (options.closable == true) {
             $(closeBtn).on('click',
@@ -140,8 +133,8 @@ var basicOverlay = (function ($, window, document) {
             $(horizon).find(el).css({
                 'margin': '0 auto',
                 'position': 'relative',
-                'top': (-1) * (Math.abs(h / 2)) + 'px',
-                'display': 'block'
+                'top': (-1) * (Math.abs(h / 2)) + 'px'
+                //'display': 'block'
             });
             // close button
             basicOverlay.current = el;
@@ -149,11 +142,10 @@ var basicOverlay = (function ($, window, document) {
             basicOverlay.afterClose = options.afterClose;
             if (options.before) {
                 $(horizon).css({
-                    'opacity': '1'
+                    //'opacity': '1'
                 });
-                options.before($(horizon).find(el),
-
-                function () {
+               
+                options.before($(horizon).find(el), function () {
                     if (options.after) {
                         options.after($(horizon).find(el));
                     }
@@ -161,10 +153,7 @@ var basicOverlay = (function ($, window, document) {
             } else {
                 $(horizon).animate({
                     'opacity': '1'
-                },
-                500,
-
-                function () {
+                }, 500, function () {
                     if (options.after) {
                         options.after($(horizon).find(el));
                     }
@@ -178,6 +167,7 @@ var basicOverlay = (function ($, window, document) {
             // merge with element settings
             options = $.extend({},
             basicOverlay.options, options);
+            console.log('2');
             basicOverlay.init(options);
         },
         close: function (id) {
@@ -212,14 +202,6 @@ var basicOverlay = (function ($, window, document) {
     $.fn.basicOverlay = function (opts) {
         opts = opts || {};
 
-        console.log('qaqaq: ' + this);
-
-        console.log('opts: ' + opts);
-
-        for (var prop in opts) {
-            console.log('opts: ' + opts[prop]);
-        }
-
         return this.each(function () {
             var content;
             var href = $(this).attr('href');
@@ -245,13 +227,7 @@ var basicOverlay = (function ($, window, document) {
             $(this).on('click',
 
             function () {
-                console.log('zzz: ' + this);
-
-                for (var prop in opts) {
-                    console.log('opts: ' + opts[prop]);
-                }
-
-
+                console.log('1');
                 basicOverlay.open(opts);
                 return false;
             });
